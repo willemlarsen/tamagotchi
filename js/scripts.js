@@ -1,4 +1,11 @@
 var Tamagotchi = {
+  isAlive: function() {
+    if(this.foodLevel > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  },
   timePasses: function() {
     this.foodLevel = this.foodLevel - 1;
     return this.foodLevel;

@@ -30,5 +30,13 @@ describe("Tamagotchi", function() {
       myPet.foodLevel.should.equal(9);
     });
   });
+
+  describe("isAlive", function() {
+    it("is alive if the foodLevel is greater than 0", function() {
+      var myPet = Object.create(Tamagotchi);
+      myPet.initialize();
+      myPet.isAlive().should.equal(true);
+    });
+  });
   
 });
