@@ -1,4 +1,14 @@
 var Tamagotchi = {
+  checkIn: function(newTamagotchi) {
+    $('.creator').hide();
+    $('#its-name').text(newTamagotchi.name);
+    $('.status').show();
+    $('#stats').append("<li>" + newTamagotchi.name + "'s food level is " + newTamagotchi.foodLevel + "</li>" +
+                       "<li>" + newTamagotchi.name + "'s sleep level is " + newTamagotchi.sleepLevel + "</li>" +
+                       "<li>" + newTamagotchi.name + "'s activity level is " + newTamagotchi.activityLevel + "</li>"
+                      );
+    newTamagotchi.timePasses();
+  },
   create: function(name) {
     var newTamagotchi = Object.create(Tamagotchi);
     newTamagotchi.initialize(name);
@@ -24,7 +34,6 @@ var Tamagotchi = {
 };
 
 $(document).ready(function() {
-
   $('.status').hide();
   $('form#create-tamagotchi').submit(function(event) {
     event.preventDefault();
@@ -35,14 +44,7 @@ $(document).ready(function() {
     var newTamagotchi = Object.create(Tamagotchi);
     newTamagotchi.initialize(inputtedName);
 
-    $('.creator').hide();
-    $('#its-name').text(newTamagotchi.name);
-    $('.status').show();
-    $('#stats').append("<li>" + newTamagotchi.name + "'s food level is " + newTamagotchi.foodLevel + "</li>" +
-                       "<li>" + newTamagotchi.name + "'s sleep level is " + newTamagotchi.sleepLevel + "</li>" +
-                       "<li>" + newTamagotchi.name + "'s activity level is " + newTamagotchi.activityLevel + "</li>"
-                      );
-    newTamagotchi.timePasses();
+    Tamagotchi.checkIn(newTamagotchi);
 
 
   });
