@@ -3,11 +3,11 @@ var Tamagotchi = {
     $('.creator').hide();
     $('#its-name').text(this.name);
     $('.status').show();
-    $('#stats').append("<li>" + this.name + "'s food level is " + this.foodLevel + "</li>" +
-                       "<li>" + this.name + "'s sleep level is " + this.sleepLevel + "</li>" +
-                       "<li>" + this.name + "'s activity level is " + this.activityLevel + "</li>"
+    $('#stats').append("<li>" + this.name + "'s last food level was " + this.foodLevel + "</li>" +
+                       "<li>" + this.name + "'s last sleep level was " + this.sleepLevel + "</li>" +
+                       "<li>" + this.name + "'s last activity level was " + this.activityLevel + "</li>"
                       );
-    newTamagotchi.timePasses();
+    this.timePasses();
   },
   create: function(name) {
     var newTamagotchi = Object.create(Tamagotchi);
@@ -46,7 +46,10 @@ $(document).ready(function() {
 
     newTamagotchi.checkIn();
 
-
+    $('#check-in').click(function() {
+      $('#stats').text('');
+      newTamagotchi.checkIn();
+    });
   });
-
+  
 });
