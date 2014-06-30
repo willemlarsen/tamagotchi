@@ -1,4 +1,9 @@
 var Tamagotchi = {
+  create: function(name) {
+    var newTamagotchi = Object.create(Tamagotchi);
+    newTamagotchi.initialize(name);
+    return newTamagotchi;
+  },
   isAlive: function() {
     if(this.foodLevel > 0) {
       return true;
