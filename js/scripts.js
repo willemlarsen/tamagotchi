@@ -1,10 +1,4 @@
 var Tamagotchi = {
-  create: function(inputtedName) {
-    var name = inputtedName;
-    inputtedName = Object.create(Tamagotchi);
-    inputtedName.initialize(name);
-    return inputtedName;
-  },
   isAlive: function() {
     if(this.foodLevel > 0) {
       return true;
@@ -33,11 +27,13 @@ $(document).ready(function() {
 
     var inputtedName = $('input#create-name').val();
     
-    Tamagotchi.create(inputtedName);
+    var newTamagotchi = Object.create(Tamagotchi);
+    newTamagotchi.initialize(inputtedName);
 
     $('.creator').hide();
-    $('#its-name').text(inputtedName);
+    $('#its-name').text(newTamagotchi.name);
     $('.status').show();
+    $('ul.stats').append("<li>" + newTamagotchi.name + "'s food level is " + foodLevel + "</li>");
 
   });
 
