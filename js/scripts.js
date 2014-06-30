@@ -4,14 +4,20 @@ var Tamagotchi = {
     return this.foodLevel;
   },
   checkIn: function() {
+
     $('.creator').hide();
     $('#its-name').text(this.name);
     this.timePasses();
     $('.status').show();
+    $('#stats').text('');
     $('#stats').append("<li>" + this.name + "'s last food level was " + this.foodLevel + "</li>" +
                        "<li>" + this.name + "'s last sleep level was " + this.sleepLevel + "</li>" +
                        "<li>" + this.name + "'s last activity level was " + this.activityLevel + "</li>"
                       );
+    if(!this.isAlive()) {
+        $('#stats').text('');
+        $('#stats').append('<h1>' + this.name + " is DEAD :(" + '</li>');
+      }
   },
   create: function(name) {
     var newTamagotchi = Object.create(Tamagotchi);
@@ -52,23 +58,12 @@ $(document).ready(function() {
     newTamagotchi.checkIn();
 
     $('#check-in').click(function() {
-      $('#stats').text('');
       newTamagotchi.checkIn();
-      if(!newTamagotchi.isAlive()) {
-        $('#stats').text('');
-        $('#stats').append('<h1>' + newTamagotchi.name + " is DEAD :(" + '</li>');
-      }
     });
 
     $('#feed-it').click(function() {
-      $('#stats').text('');
       newTamagotchi.feed();
       newTamagotchi.checkIn();
-      if(!newTamagotchi.isAlive()) {
-        $('#stats').text('');
-        $('#stats').append('<h1>' + newTamagotchi.name + " is DEAD :(" + '</li>');
-      }
-
     });
   });
   
