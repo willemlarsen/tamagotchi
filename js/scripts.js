@@ -25,7 +25,7 @@ var Tamagotchi = {
     return newTamagotchi;
   },
   isAlive: function() {
-    if(this.foodLevel > 0) {
+    if(this.foodLevel > 0 && this.sleepLevel > 0 && this.activityLevel > 0) {
       return true;
     } else {
       return false;

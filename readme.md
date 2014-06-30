@@ -1,4 +1,4 @@
-# Tamagotichi
+# Tamagotchi
 
 Remember tamagotchis? Those little electronic pets from the nineties? We're going to make one!
 
