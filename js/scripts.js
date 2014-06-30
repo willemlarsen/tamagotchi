@@ -23,7 +23,8 @@ var Tamagotchi = {
   },
   timePasses: function() {
     this.foodLevel = this.foodLevel - 1;
-    return this.foodLevel;
+    this.sleepLevel = this.sleepLevel - 1;
+    this.activityLevel = this.sleepLevel - 1;
   },
   initialize: function(name) {
     this.name = name;
@@ -49,6 +50,10 @@ $(document).ready(function() {
     $('#check-in').click(function() {
       $('#stats').text('');
       newTamagotchi.checkIn();
+      if(!newTamagotchi.isAlive()) {
+        $('#stats').text('');
+        $('#stats').append('<h1>' + newTamagotchi.name + " is DEAD :(" + '</li>');
+      }
     });
   });
   
