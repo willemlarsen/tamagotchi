@@ -1,4 +1,10 @@
 describe("Tamagotchi", function() {
+  describe("create", function() {
+    it("creates a new instance of Tamagotchi", function() {
+      var testTamagotchi = Tamagotchi.create();
+      Tamagotchi.isPrototypeOf(testTamagotchi).should.equal(true);
+    });
+  });
   describe("initialize", function() {
     it("sets the name", function() {
       var myPet = Object.create(Tamagotchi);
