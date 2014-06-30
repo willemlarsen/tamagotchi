@@ -17,3 +17,19 @@ var Tamagotchi = {
     this.activityLevel = 10;
   }
 };
+
+$(document).ready(function() {
+  $('form#create-tamagotchi').submit(function(event) {
+    event.preventDefault();
+
+    var inputtedName = $('input#create-name').val();
+    var name = inputtedName;
+    inputtedName = Object.create(Tamagotchi);
+    inputtedName.initialize(name);
+    $('.creator').hide();
+    $('#its-name').text(inputtedName.name);
+    $('.status').show();
+
+  });
+
+});
