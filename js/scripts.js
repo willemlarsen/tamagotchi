@@ -59,6 +59,17 @@ $(document).ready(function() {
         $('#stats').append('<h1>' + newTamagotchi.name + " is DEAD :(" + '</li>');
       }
     });
+
+    $('#feed-it').click(function() {
+      $('#stats').text('');
+      newTamagotchi.feed();
+      newTamagotchi.checkIn();
+      if(!newTamagotchi.isAlive()) {
+        $('#stats').text('');
+        $('#stats').append('<h1>' + newTamagotchi.name + " is DEAD :(" + '</li>');
+      }
+
+    });
   });
   
 });
