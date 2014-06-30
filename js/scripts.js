@@ -38,7 +38,12 @@ $(document).ready(function() {
     $('.creator').hide();
     $('#its-name').text(newTamagotchi.name);
     $('.status').show();
-    $('ul.stats').append("<li>" + newTamagotchi.name + "'s food level is " + foodLevel + "</li>");
+    $('#stats').append("<li>" + newTamagotchi.name + "'s food level is " + newTamagotchi.foodLevel + "</li>" +
+                       "<li>" + newTamagotchi.name + "'s sleep level is " + newTamagotchi.sleepLevel + "</li>" +
+                       "<li>" + newTamagotchi.name + "'s activity level is " + newTamagotchi.activityLevel + "</li>"
+                      );
+    newTamagotchi.timePasses();
+
 
   });
 
