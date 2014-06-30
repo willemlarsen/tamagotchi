@@ -1,4 +1,8 @@
 var Tamagotchi = {
+  feed: function () {
+    this.foodLevel = this.foodLevel + 1;
+    return this.foodLevel;
+  },
   checkIn: function() {
     $('.creator').hide();
     $('#its-name').text(this.name);

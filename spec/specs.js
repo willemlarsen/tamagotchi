@@ -1,4 +1,11 @@
 describe("Tamagotchi", function() {
+  describe("feed", function() {
+    it("feeds the Tamagotchi by increasing food level by 1", function() {
+      var testTamagotchi = Tamagotchi.create();
+      testTamagotchi.foodLevel = 1;
+      testTamagotchi.feed().should.equal(2);
+    });
+  });
   describe("create", function() {
     it("creates a new instance of Tamagotchi", function() {
       var testTamagotchi = Tamagotchi.create();
@@ -49,5 +56,4 @@ describe("Tamagotchi", function() {
       myPet.isAlive().should.equal(false);
     });
   });
-  
 });
