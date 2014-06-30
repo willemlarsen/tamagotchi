@@ -1,22 +1,34 @@
-describe("Contact", function() {
-  describe("fullName", function() {
-    it("combines the first and last name, separated by a space", function() {
-      var testContact = Object.create(Contact);
-      testContact.firstName = "Dolly";
-      testContact.lastName = "Parton";
-      testContact.fullName().should.equal("Dolly Parton");
+describe("Tamagotchi", function() {
+  describe("initialize", function() {
+    it("sets the name", function() {
+      var myPet = Object.create(Tamagotchi);
+      myPet.initialize("lil dragon");
+      myPet.name.should.equal("lil dragon");
+    });
+    it("sets the foodLevel", function() {
+      var myPet = Object.create(Tamagotchi);
+      myPet.initialize();
+      myPet.foodLevel.should.equal(10);
+    });
+    it("sets the sleepLevel", function() {
+      var myPet = Object.create(Tamagotchi);
+      myPet.initialize();
+      myPet.sleepLevel.should.equal(10);
+    });
+    it("sets the activityLevel", function() {
+      var myPet = Object.create(Tamagotchi);
+      myPet.initialize();
+      myPet.activityLevel.should.equal(10);
     });
   });
-});
 
-describe("Address", function() {
-	describe("fullAddress", function() {
-		it("returns the full address with nice formatting", function() {
-			var testAddress = Object.create(Address);
-			testAddress.street = "123 4th Ave";
-			testAddress.city = "Portland";
-			testAddress.state = "Oregon";
-			testAddress.fullAddress().should.equal("123 4th Ave, Portland, Oregon");
-		});
-	});
+  describe('timePasses', function(){
+    it("decreases the amount of food a Tamagotchi has by one", function() {
+      var myPet = Object.create(Tamagotchi);
+      myPet.initialize();
+      myPet.timePasses();
+      myPet.foodLevel.should.equal(9);
+    });
+  });
+  
 });
