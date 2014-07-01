@@ -1,4 +1,11 @@
 describe("Tamagotchi", function() {
+  describe("nap", function() {
+    it("gets the Tamagotchi a nap by increasing sleep level by 1", function() {
+      var testTamagotchi = Tamagotchi.create();
+      testTamagotchi.sleepLevel = 1;
+      testTamagotchi.nap().should.equal(2);
+    });
+  });
   describe("feed", function() {
     it("feeds the Tamagotchi by increasing food level by 1", function() {
       var testTamagotchi = Tamagotchi.create();

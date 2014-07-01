@@ -1,4 +1,8 @@
 var Tamagotchi = {
+  nap: function() {
+    this.sleepLevel = this.sleepLevel + 1;
+    return this.sleepLevel;
+  },
   feed: function () {
     this.foodLevel = this.foodLevel + 1;
     return this.foodLevel;
@@ -63,6 +67,10 @@ $(document).ready(function() {
 
     $('#feed-it').click(function() {
       newTamagotchi.feed();
+      newTamagotchi.checkIn();
+    });
+    $('#sleep').click(function() {
+      newTamagotchi.nap();
       newTamagotchi.checkIn();
     });
   });
